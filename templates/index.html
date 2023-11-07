@@ -1,0 +1,182 @@
+ {% extends 'base.html' %}
+ {% block content %}
+    <!-- Carousel Start -->
+    
+    <div class="container-fluid px-0 mb-5">
+        
+        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for slider in slider %} 
+                {% if forloop.counter == 1 %}  
+                <div class="carousel-item active">
+                {% else %}
+                    <div class="carousel-item">
+                {%endif%}   
+                    <img class="w-100" src="/media/{{slider.slider_image}}" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10 text-start">
+                                    <p class="fs-5 fw-medium text-primary text-uppercase animated slideInRight">{{slider.slider_tag}}</p>
+                                      
+                                    <h1 class="display-1 text-white mb-5 animated slideInRight">{{slider.slider_title}}</h1>
+                                    <a href="" class="btn btn-primary py-3 px-5 animated slideInRight">{{slider.slider_button}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               {%endfor%}
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        
+    </div>
+    
+    <!-- Carousel End -->
+
+
+    <!-- Course Categories Start -->
+    
+        <div class="container mb-4">
+            <h1 class="text-center mb-4">Course Categories</h1>
+            <div class="row">
+                    {% for course in Coursecat %}
+                    
+                    <div class="col-md-4 col-lg-2 wow fadeInUp" data-wow-delay="0.1s">
+                        <a href="/course-category/{{course.course_title}}"><img src="/media/{{course.course_image}}" class="card-img-top border" alt="..."></a>
+                        {% comment %} {{course.course_title}}     {% endcomment %}
+                    </div>
+                    
+                    {% endfor %}
+            </div>       
+                
+        </div>
+    <!-- Course Categories End -->
+
+
+    <!-- Popular Courses Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                {% comment %} <p class="fw-medium text-uppercase text-primary mb-2">Popular Courses</p> {% endcomment %}
+                <h1 class="display-5 mb-4">Popular Courses</h1>
+            </div>
+            
+            <div class="row gy-5 gx-4">
+                {% for popularcourse in Popularcourse %}
+                <div class="col-lg-3 card-design wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item">
+                        <img class="img-fluid" src="/media/{{popularcourse.course_imagetwo}}" alt="">
+                        <div class="service-img">
+                            <img class="img-fluid" src="/media/{{popularcourse.course_imageone}}" alt="">
+                        </div>
+                        <div class="service-detail">
+                            <div class="service-title">
+                                <hr class="w-25">
+                                <h3 class="mb-0">{{popularcourse.course_title}}</h3>
+                                <hr class="w-25">
+                            </div>
+                            <div class="service-text">
+                                <p class="text-white mb-0">{{popularcourse.course_flag}}</p>
+                            </div>
+                        </div>
+                        <a class="btn btn-light" href="#">View in Details</a>
+                    </div>
+                </div>
+                {% endfor %}    
+            </div>
+            
+        </div>
+    </div>
+    <!-- Upcoming Batches End -->
+    <div class="container mt-4">
+        <h1 class="text-center">Upcoming Batches</h1>
+        
+        <div class="row upcomingbatch">
+            {% for batch in upcomingBatches %}
+                <div class="card-body border py-2 mb-3 ml-1 col-sm-3">
+                   
+                        
+                            <div class="seprator pb-3">    
+                            <a class="me-4"><span class="font-weight-bold">Course:</span></a><a class="me-4 float-end"><span class="card-title font-weight-bold">{{batch.course_title}}</span></a>
+                            </div>
+                            <div class="seprator pb-3">
+                            <a class="me-4"><span class="font-weight-bold">Branch:</span><a><a class="me-4 float-end"><span class="card-title font-weight-bold">{{batch.course_branch}}</span></a>
+                            </div>
+                            <div class="seprator pb-3">
+                            <a class="me-4"><span class="font-weight-bold">Date:</span><a><a class="me-4 float-end"><span class="card-title font-weight-bold">{{batch.course_date}}</span></a>
+                            </div>
+                            <div>
+                            <a class="me-4"><span class="font-weight-bold">Time:</span><a><a class="me-4 float-end"><span class="card-title font-weight-bold">{{batch.course_time}}</span></a>
+                            </div>
+                       
+                      
+                </div>
+            {%endfor%}       
+        </div>
+             
+    </div>
+    <!--Upcoming Batches End-->
+    
+
+    <!-- Our Students Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                {% comment %} <p class="fw-medium text-uppercase text-primary mb-2">Testimonial</p> {% endcomment %}
+                <h1 class="display-5 mb-5">Our Students Say</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                {% for student in studentsay %}
+                <div class="testimonial-item text-center">
+                    <div class="testimonial-img position-relative">
+                        <img class="img-fluid rounded-circle mx-auto mb-5" src="/media/{{student.student_image}}">
+                        <div class="btn-square bg-primary rounded-circle">
+                            <i class="fa fa-quote-left text-white"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-text text-center rounded p-4">
+                        <p>{{student.student_desc|slice:":105"}}</p>
+                        {% comment %} <h5 class="mb-1">Accenture</h5>
+                        <span class="fst-italic">Python Full Stack Developer</span> {% endcomment %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Our Students End -->
+
+
+    <!-- Our Clients Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                {% comment %} <p class="fw-medium text-uppercase text-primary mb-2">Testimonial</p> {% endcomment %}
+                <h1 class="display-5 mb-5">Our Clients</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                {%for ourclient in ourclients %}
+                <div class="testimonial-item text-center">
+                    
+                    <div class="testimonial p-4">
+                        <img class="img-fluid  mx-auto mb-5" src="/media/{{ourclient.client_image}}">
+                    </div>
+                    <h5 class="mb-1">{{ourclient.client_name}}</h5>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <!-- Our Clients End -->
+{% endblock %}

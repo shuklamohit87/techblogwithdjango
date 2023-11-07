@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block content %}
+
+        <!-- Page content-->
+        <div class="container mt-5">
+            <div class="row">
+                {% for campusinfo in campustraining %}
+                <div class="col-lg-8">
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <figure class="mb-4"><img class="img-fluid rounded img-thumbnail" src="/media/{{campusinfo.image}}" alt="..."  style="width:100%;"/></figure>
+                        </header>
+                        
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <div class="card">
+                                {% comment %} <div class="card-header">
+                                  Featured
+                                </div> {% endcomment %}
+                                <div class="card-body">
+                                  {% comment %} <h5 class="card-title">Special title treatment</h5> {% endcomment %}
+                                  <p class="card-text justify">{{campusinfo.description_one | safe|rjust:"10"}}</p>
+                                  {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+                                </div>
+                              </div>
+                        </section>
+                        <section class="mb-5">
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    {{campusinfo.heading_two}}
+                                </div>
+                                <div class="card-body">
+                                  {% comment %} <h5 class="card-title">{{campusinfo.heading_two}}</h5> {% endcomment %}
+                                  <p class="card-text justify">{{campusinfo.description_two | safe|rjust:"10"}}</p>
+                                  {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+                                </div>
+                              </div>
+                        </section>
+                        <section class="mb-5">
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    {{campusinfo.heading_three}}
+                                </div>
+                                <div class="card-body">
+                                  {% comment %} <h5 class="card-title">{{campusinfo.heading_two}}</h5> {% endcomment %}
+                                  <p class="card-text justify">{{campusinfo.description_three | safe|rjust:"10"}}</p>
+                                  {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+                                </div>
+                              </div>
+                        </section>
+                        <section class="mb-5">
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    {{campusinfo.heading_four}}
+                                </div>
+                                <div class="card-body">
+                                  {% comment %} <h5 class="card-title">{{campusinfo.heading_two}}</h5> {% endcomment %}
+                                  <p class="card-text justify">{{campusinfo.description_four | safe|rjust:"10"}}</p>
+                                  {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+                                </div>
+                              </div>
+                        </section>
+                        <section class="mb-5">
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    {{campusinfo.heading_five}}
+                                </div>
+                                <div class="card-body">
+                                  {% comment %} <h5 class="card-title">{{campusinfo.heading_two}}</h5> {% endcomment %}
+                                  <p class="card-text justify">{{campusinfo.description_five | safe|rjust:"10"}}</p>
+                                  {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+                                </div>
+                              </div>
+                        </section>
+                        <section class="mb-5">
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    {{campusinfo.heading_six}}
+                                </div>
+                                <div class="card-body">
+                                  {% comment %} <h5 class="card-title">{{campusinfo.heading_two}}</h5> {% endcomment %}
+                                  <p class="card-text justify">{{campusinfo.description_six| safe|rjust:"10"}}</p>
+                                  {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+                                </div>
+                              </div>
+                        </section>
+                    </article>
+                
+                </div>
+                {% endfor %}
+                <!-- Side widgets-->
+                {% block sidebar%}
+                {% include 'enquiry.html'%}
+                {% endblock %}
+                <!--side widgets ends-->
+            </div>
+        </div>
+        <!--Page content end-->
+{% endblock %}

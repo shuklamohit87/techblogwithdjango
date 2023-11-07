@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Certificate tabs Start -->
+    <div class="container my-4 bgnone">
+            <div class="row text-center py-4 responsive">
+                <h2>Apply for Certificate</h2>
+                {% if messages %}
+                {% for msg in messages %}
+                <div class="alert alert-success">
+                    <strong>Success!</strong>{{msg}}
+                </div>
+                {%endfor%}
+                {%endif%}
+                <form method="POST" action="{% url 'applycertificate' %}" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
+                                <label for="name">Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                <label for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name ="course" id="course" placeholder="Course" required>
+                                <label for="subject">Course</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select class="form-control" name="choosecenter" id="choosecenter" placeholder="Choose a Center" required>
+                                    <option value="">--Choose a Center--</option>
+                                    {% for center in centerchoose %}
+                                    <option value="{{center.id}}">{{center.centername}}</option>
+                                    {% endfor %}
+                                  </select>
+                                <label for="enddate">Choose a Center</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="facultyname" id="facultyname" placeholder="Faculty Name" required>
+                                <label for="facultyname">Faculty Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="studentid" id="studentid" placeholder="Student Id" required>
+                                <label for="studentid">Enter Student Id Number eg 2021/102132</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" name="phone" id="phone" placeholder="Phone Number" required>
+                                <label for="phone">Phone Number</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="date" class="form-control" name="startdate" id="startdate" placeholder="Start Date" required>
+                                <label for="startdate">Start Date</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="date" class="form-control" name="enddate" id="endtdate" placeholder="End Date" required>
+                                <label for="enddate">End Date</label>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
+                            <button class="btn btn-primary py-3 px-5" type="submit">Send Request</button>
+                            <button class="btn btn-primary py-3 px-5" type="submit" value="reset">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>              
+    </div>
+    <!-- Certificate tabs  End ->
+
+
+{% endblock %}

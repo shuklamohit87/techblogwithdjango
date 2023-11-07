@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Certificate tabs Start -->
+    <div class="container my-4 bgnone">
+            <div class="row text-center py-4 responsive">
+                
+                <h2>Download Certificate</h2>
+                {% if messages %}
+                {% for msg in messages %}
+                <div class="alert alert-success">
+                    <strong>Success!</strong>{{msg}}
+                </div>
+                {%endfor%}
+                {%endif%}
+                <div class="col-md-3  mx-auto">
+                <form method="GET" action="/viewcertificate/<studentid>" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="studentid" id="sudentid" placeholder="Enter Student Id for Download Certificate" required>
+                                <label for="name">Student ID</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary py-3 px-5" type="submit">View</button>
+                            <button class="btn btn-primary py-3 px-5" type="submit" value="reset">Reset</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>              
+    </div>
+    <!-- Certificate tabs  End ->
+
+
+{% endblock %}

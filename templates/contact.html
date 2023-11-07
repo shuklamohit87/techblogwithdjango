@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Contact Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 justify-content-center mb-5">
+                {% for contactpagedata in contactpageinfo %}
+                
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-light text-center h-100 p-5">
+                        <div class="btn-square bg-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                            <i class="fa fa-phone-alt fa-2x text-primary"></i>
+                        </div>
+                        <h4 class="mb-3">Phone Number</h4>
+                        <p class="mb-2">{{contactpagedata.phone1}}</p>
+                        <p class="mb-4">{{contactpagedata.phone2}}</p>
+                        <a class="btn btn-primary px-4" href="tel:{{contactpagedata.phone1}}">Call Now <i
+                                class="fa fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="bg-light text-center h-100 p-5">
+                        <div class="btn-square bg-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                            <i class="fa fa-envelope-open fa-2x text-primary"></i>
+                        </div>
+                        <h4 class="mb-3">Email Address</h4>
+                        <p class="mb-2">{{contactpagedata.email1}}</p>
+                        <p class="mb-4">{{contactpagedata.email2}}</p>
+                        <a class="btn btn-primary px-4" href="mailto:{{contactpagedata.email2}}">Email Now <i
+                                class="fa fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="bg-light text-center h-100 p-5">
+                        <div class="btn-square bg-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                            <i class="fa fa-map-marker-alt fa-2x text-primary"></i>
+                        </div>
+                        <h4 class="mb-3">Office Address</h4>
+                        <p class="mb-2">{{contactpagedata.offaddress}}</p>
+                        
+                        <a class="btn btn-primary px-4" href="{{contactpagedata.googlemap1}}"
+                            target="blank">Direction <i class="fa fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                
+            </div>
+                <div class="row mb-5">
+                    <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
+                        <iframe class="w-100"
+                            src="{{contactpagedata.googlemap2}}"
+                            frameborder="0" style="min-height: 450px; border:0;" allowfullscreen="" aria-hidden="false"
+                            tabindex="0"></iframe>
+                    </div>
+                </div>
+                <div class="row g-5">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <p class="fw-medium text-uppercase text-primary mb-2">Contact Us</p>
+                        <h1 class="display-5 mb-4">{{contactpagedata.contactinfo}}</h1>
+                        {% comment %} <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form
+                            with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're
+                            done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> {% endcomment %}
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0 btn-square bg-primary rounded-circle">
+                                        <i class="fa fa-phone-alt text-white"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h6>Call Us</h6>
+                                        <span>{{contactpagedata.phone2}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0 btn-square bg-primary rounded-circle">
+                                        <i class="fa fa-envelope text-white"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h6>Mail Us</h6>
+                                        <span>info@example.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                        {% if messages %}
+                        {% for message in  messages %}
+                        <div class="alert alert-success">
+                            <strong>Success!</strong>{{message}}
+                          </div>
+
+                        {% endfor %}
+                        {% endif %}
+                        <form method="POST" action="{% url 'contact' %}">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
+                                        <label for="name">Your Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                        <label for="email">Your Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" name ="subject" id="subject" placeholder="Subject" required>
+                                        <label for="subject">Subject</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="Number" class="form-control" name="phone" id="phone" placeholder="Your Phone" required>
+                                        <label for="phone">Your Phone</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" name="message" placeholder="Leave a message here" id="message"
+                                            style="height: 150px" required></textarea>
+                                        <label for="message">Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                {% endfor %}   
+
+        </div>
+    </div>
+    <!-- Contact End -->
+{% endblock %}

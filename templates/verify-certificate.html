@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Certificate tabs Start -->
+    <div class="container my-4 bgnone">
+            <div class="row text-center py-4 responsive">
+                
+                <h2>Verify Certificate</h2>
+                        
+                <div class="col-md-3  mx-auto">
+                    {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.level_tag }} {{ message.extra_tags|default_if_none:'' }}">
+                        {% if 'safe' in message.tags %}
+                        {{ message|safe }}
+                        {% else %}
+                        {{ message }}
+                        {% endif %}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                <form method="post" action="/studentexists/" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="stuid" id="stuid" placeholder="Enter Student Id to Verify Certificate" required>
+                                <label for="name">Student ID</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary py-3 px-5" type="submit">View</button>
+                            <button class="btn btn-primary py-3 px-5" type="submit" value="reset">Reset</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>              
+    </div>
+    <!-- Certificate tabs  End ->
+
+
+{% endblock %}

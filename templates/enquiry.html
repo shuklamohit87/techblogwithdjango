@@ -1,0 +1,73 @@
+<div class="col-lg-4">
+    <!-- Enquriy Form Start-->
+    <div class="card mb-4">
+        <div class="card-header text-center">Enquiry Now</div>
+        <div class="card-body">
+            <div class="">
+                {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.level_tag }} {{ message.extra_tags|default_if_none:'' }}">
+                        {% if 'safe' in message.tags %}
+                        {{ message|safe }}
+                        {% else %}
+                        {{ message }}
+                        {% endif %}
+                        </div>
+                        {% endfor %}
+                {% endif %}
+                <form method="POST" action="{% url 'campus' %}" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" required>
+                                <label for="name">Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" required>
+                                <label for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name ="contact" id="contact" placeholder="Enter Contact Number" required>
+                                <label for="subject">Contact</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <select class="form-control" name="choosecourse" id="choosecourse" placeholder="Choose Course" required>
+                                    <option value="">--Choose a Course--</option>
+                                    {% for course in courses %}
+                                    <option value="{{course.id}}">{{course.category_title}}</option>
+                                    {% endfor %}
+                                   
+                                  </select>
+                                <label for="enddate">Choose Course</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <select class="form-control" name="choosecenter" id="choosecenter" placeholder="Choose Center" required>
+                                    <option value="">--Choose a Center--</option>
+                                    {% for center in choosecenter %}
+                                    <option value="{{center.id}}">{{center.centername}}</option>
+                                    {% endfor %}
+                                    
+                                  </select>
+                                <label for="enddate">Choose a Center</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-primary py-3 px-5" type="submit">Submit</button>
+                            <button class="btn btn-primary py-3 px-5" type="submit" value="reset">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Enquiry Form Ends-->
+</div>

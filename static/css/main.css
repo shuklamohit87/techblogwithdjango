@@ -1,0 +1,120 @@
+
+.card, .card-img-top{
+    max-width: 100% !important;
+    max-height: 100% !important;
+    margin-left:5px;
+    margin-bottom:20px;
+}
+/* popular course */
+
+/* .card-design{
+    
+    max-height: 300px !important;
+} */
+.card-body .seprator{
+    border-bottom:1px solid #e8ebf3 !important;
+    width:100% !important;
+}
+.team-social p{
+    color:#ffffff;
+}
+
+/* homepage testimonial */
+.testimonial img{
+    max-width: 250px;
+    margin:0px;
+}
+
+.upcomingbatch{
+    margin-top:50px !important;
+    margin-bottom:50px !important;
+}
+
+.w-100{
+    max-height:800px !important;
+}
+
+/* Placement Page placed student */
+
+.testimonial-carousel .testimonial-img img{
+    width:300px !important;
+    height:300px !important;
+}
+
+.tab{
+    width:325px !important;
+    height:auto !important;
+}
+
+/* Footer css */
+.subscribe_news{
+    color:#ffffff !important;
+}
+
+.bgnone{
+    background: #e8ebf3 !important;
+}
+/* badge css for category listing */
+.badge {
+    background-color:#FF5E14;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    border-radius: 5px;
+  }
+.downloadcertificate{
+    width:400px !important;
+}
+.downloadcertificate h2{
+    font-size:18px;
+}
+
+#button {
+    background-color: #4caf50;
+    border-radius: 5px;
+    color: white;
+}
+
+/* body {
+    color: black;
+    display: table;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    text-align: center;
+} */
+.certificatedesign{
+    border: 20px solid tan;
+    width: 750px;
+    height: 563px;
+    display: table-cell;
+    vertical-align: middle !important;
+    display: flex;
+    background:#ffffff;
+}
+.logo {
+    color: tan;
+}
+
+.marquee {
+    color: tan;
+    font-size: 48px;
+    margin: 20px;
+}
+.assignment {
+    margin: 20px;
+}
+.person {
+    border-bottom: 2px solid black;
+    font-size: 32px;
+    font-style: italic;
+    margin: 20px auto;
+    width: 400px;
+}
+.reason {
+    margin: 20px;
+}
+
+.image-size{
+    max-width:70px;
+    max-height:70px;
+}

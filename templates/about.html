@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-xxl my-4 bgnone">
+    <div class="row p-3">
+        {% for aboutinfo in aboutdata %}
+            <p><strong>Our #1 Highest Priority is on Building Your Job- oriented Skills</strong></p>
+            <p>{{aboutinfo.ques1}}</p>
+            <p><strong>Our Mission</strong></p>
+            <p>{{aboutinfo.ques2}}</p>
+            <p><strong>What We Do</strong></p>
+            <p>{{aboutinfo.ques3}}</p>
+            <p><strong>Our Trainers and Quality</strong></p>
+            <p>{{aboutinfo.ques4}}</p>
+            <p><strong>Your career Matters to us</strong></p>
+            <p>{{aboutinfo.ques5}}</p>
+        {% endfor %}    
+    </div>    
+</div>    
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+        <!-- Page content-->
+        <div class="container mt-5">
+            <div class="row">
+                {% if course_content %}
+                {% for content in course_content %}
+                <div class="col-lg-8">
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <figure class="mb-4"><img class="img-fluid rounded img-thumbnail align-center" src="/media/{{content.course_image}}" alt="..."  style="max-width:100px;"/></figure>
+                        </header>
+                        
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <div class="card">
+                                <div class="card-header">
+                                  {{content.course_title}}
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">{{content.course_title | upper}}</h5>
+                                  {% if content.course_detail %}
+                                  <p class="">{{content.course_detail | safe}}</p>
+                                  {% else %}
+                                  <strong>Course details not found..</strong>
+                                  {% endif %}
+                                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                              </div>
+                        </section>
+                        
+                    </article>
+                
+                </div>
+                
+                {% endfor %}
+                {%else%}
+                Details not found..
+                {% endif %}
+                <!-- Side widgets-->
+                {% block sidebar%}
+                {% include 'enquiry.html'%}
+                {% endblock %}
+                <!--side widgets ends-->
+            </div>
+        </div>
+        <!--Page content end-->
+{% endblock %}

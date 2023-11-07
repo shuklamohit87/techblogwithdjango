@@ -1,0 +1,13 @@
+{% include 'header.html' %}
+
+{% if breadcrumbs %}
+{% include 'dynamic_breadcrumbs/breadcrumbs.html' %}
+{% endif %}
+
+{% block content %}
+{% if message%}
+{% include 'base.html' %}
+{%endif%}
+{% endblock %}
+
+{% include "footer.html" %}

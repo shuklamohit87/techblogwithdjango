@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+  
+   <!-- Placed Student -->
+   <div class="container-xxl py-5 jumbotron">
+    <div class="container">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            {% comment %} <p class="fw-medium text-uppercase text-primary mb-2">Testimonial</p> {% endcomment %}
+            <h1 class="display-5 mb-5">Placed Student</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+            {% for placestudent in placement %}
+            <div class="row md-4 sm-2 testimonial-item text-center">
+                <div class="testimonial-img">
+                    <img class="img-fluid" src="/media/{{placestudent.studentimg}}">
+                </div>
+               <div class="tab">
+                    <table class="table table-bordered">
+                        <tr>
+                        <th>Name</th>
+                        <td>{{placestudent.studentname}}</td>
+                        </tr>
+                        <tr>
+                        <th>Job Profile</th>
+                        <td>{{placestudent.studentprofile}}</td>
+                        </tr>
+                        <tr>
+                        <th>Pacakage</th>
+                        <td>{{placestudent.studentpacakage}}</td>
+                        </tr>
+                        <tr>
+                        <th>Company</th>
+                        <td>{{placestudent.studentcompany}}</td>
+                        </tr>
+                    </table>    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Placed student end-->
+
+ <!-- Our Clients Start -->
+ <div class="container py-5" style="background:#F6F7FB;">
+    <div class="row">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            {% comment %} <p class="fw-medium text-uppercase text-primary mb-2">Testimonial</p> {% endcomment %}
+            <h1 class="display-5 mb-5">Our Clients</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+            {%for ourclient in ourclients %}
+            <div class="testimonial-item text-center">
+                
+                <div class="testimonial p-4">
+                    <img class="img-fluid" style="border: 1px solid #eeeeee;background:#ffffff;" src="/media/{{ourclient.client_image}}">
+                </div>
+                <span>
+                <h5 class="text-center">{{ourclient.client_name}}</h5>
+                </span>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+<!-- Our Clients End -->
+{% endblock %}

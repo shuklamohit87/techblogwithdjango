@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Certificate tabs Start -->
+    <div class="container-fluid my-4 bgnone">
+            <div class="row text-center py-4 responsive">
+              {% comment %} <h1 class="jumbotron-heading">Album example</h1>
+              <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p> {% endcomment %}
+              <p>
+                    <a href="{% url 'applycertificate' %}" class="btn btn-primary">Apply for Certificate</a>
+                    <a href="{% url 'downloadcertificate' %}" class="btn btn-primary">Download Certificate</a>
+                    <a href="/verifycertificate/" class="btn btn-primary">Verify Certificate</a>
+              </p>
+            </div>              
+    </div>
+    <!-- Certificate tabs  End ->
+
+
+{% endblock %}
